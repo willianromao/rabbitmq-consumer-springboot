@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: ${CONSUMER_PORT:8082}
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    host: ${MQ_HOST:localhost}
+    port: ${MQ_PORT:5672}
+    username: ${MQ_USER:guest}
+    password: ${MQ_PASS:guest}
     request:
       exchenge:
         producer: ex.producer.aula-spring
