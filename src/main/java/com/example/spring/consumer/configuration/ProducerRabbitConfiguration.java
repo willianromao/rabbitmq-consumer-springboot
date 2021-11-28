@@ -25,6 +25,7 @@ public class ProducerRabbitConfiguration {
         return QueueBuilder.durable(routingKey)
                 .deadLetterExchange(exchange)
                 .deadLetterRoutingKey(deadLetter)
+                .quorum()
                 .build();
     }
 
@@ -33,12 +34,15 @@ public class ProducerRabbitConfiguration {
         return QueueBuilder.durable(deadLetter)
                 .deadLetterExchange(exchange)
                 .deadLetterRoutingKey(routingKey)
+                .quorum()
                 .build();
     }
 
     @Bean
     Queue parkingLot() {
-        return new Queue(parkingLot);
+        return QueueBuilder.durable(parkingLot)
+                .quorum()
+                .build();
     }
 
     @Bean
