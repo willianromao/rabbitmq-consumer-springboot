@@ -10,7 +10,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 
     @Override
     public void action(MessageQueue message) {
-        if("teste".equalsIgnoreCase(message.getText())) {
+        if("erro".equalsIgnoreCase(message.getText())) {
             throw new AmqpRejectAndDontRequeueException("erro");
         }
 
